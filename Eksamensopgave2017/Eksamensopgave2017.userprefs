@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{A8C4D93E-FEB7-46AA-87CE-2AF138391681}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Eksamensopgave2017/ConsoleReceipt.cs" Line="59" Column="13" />
+      <File FileName="Eksamensopgave2017/ConsoleMenu.cs" Line="64" Column="74" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Eksamensopgave2017 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
