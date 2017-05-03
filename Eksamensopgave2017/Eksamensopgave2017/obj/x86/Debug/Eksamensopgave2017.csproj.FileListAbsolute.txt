@@ -10,3 +10,9 @@
 /Users/nataliemark/Desktop/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/obj/x86/Debug/Eksamensopgave2017.pdb
 /Users/nataliemark/Desktop/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/bin/Debug/Eksamensopgave2017.exe
 /Users/nataliemark/Desktop/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/bin/Debug/Eksamensopgave2017.pdb
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/bin/Debug/Eksamensopgave2017.exe
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/bin/Debug/Eksamensopgave2017.pdb
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/obj/x86/Debug/Eksamensopgave2017.csprojResolveAssemblyReference.cache
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/obj/x86/Debug/Eksamensopgave2017.csproj.CoreCompileInputs.cache
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/obj/x86/Debug/Eksamensopgave2017.exe
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/obj/x86/Debug/Eksamensopgave2017.pdb

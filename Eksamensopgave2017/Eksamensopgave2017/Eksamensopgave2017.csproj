@@ -59,7 +59,10 @@
     <Compile Include="ConsoleDesign.cs" />
     <Compile Include="ConsoleMenu.cs" />
     <Compile Include="ConsoleReceipt.cs" />
-    <Compile Include="ConsoleMultipleBuy.cs" />
+    <Compile Include="ConsoleMultipleBuy01.cs" />
+    <Compile Include="Buttons\ButtonBase.cs" />
+    <Compile Include="Buttons\Button.cs" />
+    <Compile Include="ConsoleMultipleBuy02.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Users Products\" />
@@ -68,6 +71,7 @@
     <Folder Include="Interface\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Event\" />
+    <Folder Include="Buttons\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

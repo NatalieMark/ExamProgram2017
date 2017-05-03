@@ -20,14 +20,17 @@ namespace Eksamensopgave2017
 			
 			ConsoleMenu menu = new ConsoleMenu();
             ConsoleReceipt receipt = new ConsoleReceipt(transaction);
-            ConsoleMultipleBuy multi = new ConsoleMultipleBuy(transaction);
+            ConsoleMultipleBuy01 multi = new ConsoleMultipleBuy01();
+            ConsoleMultipleBuy02 multi2 = new ConsoleMultipleBuy02();
 
             menu.Print();
             Console.ReadLine();
             receipt.Print();
             Console.ReadLine();
             multi.Print();
-
+            Console.ReadLine();
+            multi2.Print();
+            Console.ReadLine();
         }
 
         public void DisplayUserNotFound(string username)

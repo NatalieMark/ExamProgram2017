@@ -13,16 +13,25 @@ namespace Eksamensopgave2017
 			this._stregsystem = stregsystem;
 			ui.CommandEntered += Blabla;
 		}
-		User a = new User(3, "Natalie", "Mark", "natamark", "nata@mail.com", 23900);
 
+        User userA;
+
+        Stregsystem stregsystem = new Stregsystem();
+
+        public void getUser()
+        {
+            userA = stregsystem.GetUserByID(4);
+        }
 
 		public void Blabla(string command)
 		{
+            getUser();
+
 			if (command != null)
 			{
 				if (string.Compare(command, "user") == 0)
 				{
-					_ui.DisplayUserInfo(a);
+                    _ui.DisplayUserInfo(userA);
 				}
 			}
 		}
