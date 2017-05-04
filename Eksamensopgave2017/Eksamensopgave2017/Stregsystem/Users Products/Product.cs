@@ -76,7 +76,7 @@ namespace Stregsystem
 
 		public override string ToString()
 		{
-			return string.Format($"{Name} {Price},- [Product ID {ID}]");
+			return string.Format($"{Name} {Price},- [ID {ID}]");
 		}
 	}
 }

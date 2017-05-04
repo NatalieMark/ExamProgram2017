@@ -57,7 +57,14 @@ namespace Eksamensopgave2017
 
         public void DisplayTooManyArgumentsError()
         {
-            Console.WriteLine($"!ERROR!\nToo many arguments!");
+			Console.BackgroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.White;
+			string write = "                         !ERROR!                          ";
+            string write1 = "                   Too many arguments!!                   ";
+            Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop - 1);
+			Console.WriteLine(write);
+			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop);
+			Console.WriteLine(write1);
         }
 
         public void DisplayAdminCommandNotFoundMessage(string adminCommand)
@@ -94,7 +101,7 @@ namespace Eksamensopgave2017
         
         public void Close()
         {
-            throw new NotImplementedException();
+            _running = false;
         }
 
         public event StregsystemEvent CommandEntered;

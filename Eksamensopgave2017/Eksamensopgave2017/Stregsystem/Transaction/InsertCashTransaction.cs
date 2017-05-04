@@ -28,7 +28,7 @@ namespace Stregsystem
 
 		public override void Execute()
 		{
-            if (Deposit <= 0)
+            if (Deposit >= 0)
                 User.Balance += Deposit;
             else
                 throw new InvalidValueException("You can't deposit less than or equal to 0,-");

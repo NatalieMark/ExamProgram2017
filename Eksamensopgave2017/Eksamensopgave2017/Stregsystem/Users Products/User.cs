@@ -129,7 +129,7 @@ namespace Stregsystem
 					throw new InvalidValueException("Number of transactions must be larger than or equal to 0");
 			}
 		}
-
+/*
 		public void UserBalanceNotification(User user, decimal balance)
 		{
 			user.Balance = balance;
@@ -139,7 +139,7 @@ namespace Stregsystem
 								  "You have less than 50,- left!\n" +
 								  $"Your current balance is: {Balance},- ");
 		}
-
+*/
 		public override string ToString()
 		{
 			return string.Format($"{Firstname} {Lastname} [{Username}] ({Email})");

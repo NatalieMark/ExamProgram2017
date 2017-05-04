@@ -1,20 +1,13 @@
 ﻿<Properties StartupConfiguration="{A8C4D93E-FEB7-46AA-87CE-2AF138391681}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleUserInfo02.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StregsystemController.cs">
     <Files>
-      <File FileName="Program.cs" Line="16" Column="46" />
-      <File FileName="StregsystemCLI.cs" Line="79" Column="74" />
-      <File FileName="ConsoleUserInfo02.cs" Line="12" Column="45" />
-      <File FileName="Stregsystem.cs" Line="102" Column="1" NotebookId="1" />
-      <File FileName="Stregsystem/Users Products/User.cs" Line="184" Column="40" NotebookId="1" />
-      <File FileName="StregsystemController.cs" Line="87" Column="88" NotebookId="1" />
-      <File FileName="ConsoleMultipleBuy01.cs" Line="11" Column="36" NotebookId="1" />
+      <File FileName="StregsystemCLI.cs" Line="56" Column="4" />
+      <File FileName="StregsystemController.cs" Line="26" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/ConsoleUserInfo02.cs" relfile="ConsoleUserInfo02.cs" line="81" column="48" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Eksamensopgave2017 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

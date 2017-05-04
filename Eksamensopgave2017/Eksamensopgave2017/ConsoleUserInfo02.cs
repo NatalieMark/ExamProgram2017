@@ -8,8 +8,9 @@ namespace Eksamensopgave2017
     public class ConsoleUserInfo02 : ConsoleDesign
     {
         private IStregsystem _stregsystem;
+		private int _lineLength = 0;
 
-        public ConsoleUserInfo02(User user, IStregsystem stregsystem)
+		public ConsoleUserInfo02(User user, IStregsystem stregsystem)
         {
             this.User = user;
             this._stregsystem = stregsystem;
@@ -37,7 +38,6 @@ namespace Eksamensopgave2017
 
         public override void Body()
         {
-            int lineLength = 0;
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
 
@@ -67,28 +67,22 @@ namespace Eksamensopgave2017
             {
                 Console.SetCursorPosition((Console.WindowWidth - line.Length) / 2, Console.CursorTop);
                 Console.WriteLine(line);
-                lineLength = line.Length;
+                _lineLength = line.Length;
             }
         }
 
         public void BodyText()
         {
-			Console.SetCursorPosition(0, 7);
+			Console.SetCursorPosition(0, 9);
 
-			List<string> printingList = new List<string>();
-
-            IEnumerable<Transaction> transactions = _stregsystem.GetTransactions(User, 1).ToList();
+            IEnumerable<Transaction> transactions = _stregsystem.GetTransactions(User, 10).ToList();
 
             foreach (Transaction transaction in transactions)
             {
-                printingList.Add(transaction.ToString());
-            }
-            foreach(string line in printingList)
-            {
-				Console.WriteLine($"{line}");
+                Console.SetCursorPosition((Console.WindowWidth - _lineLength + 10) / 2, Console.CursorTop);
+                Console.WriteLine(((BuyTransaction)transaction).Product.ToString());
             }
         }
-
 
         public override void Print()
         {

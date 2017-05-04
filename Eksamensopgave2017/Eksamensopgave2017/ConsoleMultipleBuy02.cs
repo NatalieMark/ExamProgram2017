@@ -7,18 +7,19 @@ namespace Eksamensopgave2017
 	public class ConsoleMultipleBuy02 : ConsoleDesign
 	{
         private int _productsPrinted;
+        private IStregsystem _stregsystem;
 
-		public ConsoleMultipleBuy02()
+        public ConsoleMultipleBuy02(IStregsystem stregsystem)
 		{
+            this._stregsystem = stregsystem;
 		}
 
-		Stregsystem stregsystem = new Stregsystem();
 		List<Product> activeProductsList = new List<Product>();
 		List<int> activeProductsCounter = new List<int>();
 
 		public void ActiveProductsToList()
 		{
-			IEnumerable<Product> activeProducts = stregsystem.ActiveProducts;
+			IEnumerable<Product> activeProducts = _stregsystem.ActiveProducts;
 
 			foreach (Product product in activeProducts)
 			{

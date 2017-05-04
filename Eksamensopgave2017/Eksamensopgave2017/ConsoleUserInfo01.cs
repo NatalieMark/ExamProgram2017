@@ -79,7 +79,7 @@ namespace Eksamensopgave2017
 			printingList.Add("");
 			printingList.Add($"Email:            {User.Email}");
 			printingList.Add("");
-			printingList.Add($"Current Balace:   {User.Balance}");
+			printingList.Add($"Current Balace:   {User.Balance},-");
 
             foreach (string line in printingList)
             {
