@@ -39,7 +39,7 @@ namespace Eksamensopgave2017
             printingList.Add("|  Options:                                      Write:  |");
             printingList.Add("|––––––––––––––––––––––––––––––––––––––––––––––––––––––––|");
             printingList.Add("|                                                        |");
-            printingList.Add("|  Quickbuy                    ( Username, product ID )  |");
+            printingList.Add("|  Quickbuy                     ( Username product ID )  |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|  User info                               ( Username )  |");
 			printingList.Add("|                                                        |");
@@ -60,9 +60,10 @@ namespace Eksamensopgave2017
 			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop);
 			Console.Write(write);
 
-            Console.ForegroundColor = ConsoleColor.DarkBlue; 
-			Console.SetCursorPosition(Console.WindowWidth / 3, Console.CursorTop);
-        }
+            string sizeOfWrite = " Your choice: ";
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2 + sizeOfWrite.Length, Console.CursorTop);
+		}
 
         public override void Print()
         {

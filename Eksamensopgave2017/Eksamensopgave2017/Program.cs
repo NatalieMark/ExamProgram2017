@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
+using Stregsystem;
 
 namespace Eksamensopgave2017
 {
@@ -16,7 +16,7 @@ namespace Eksamensopgave2017
 			IStregsystem stregsystem = new Stregsystem();
 			IStregsystemUI ui = new StregsystemCLI(stregsystem);
 			StregsystemController sc = new StregsystemController(ui, stregsystem);
-            stregsystem.GetUserByID(2);
+            //stregsystem.GetUserByID(2);
             ui.Start();
 		}
 	}

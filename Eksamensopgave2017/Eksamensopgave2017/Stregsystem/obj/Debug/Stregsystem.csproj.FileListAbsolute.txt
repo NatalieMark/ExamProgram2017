@@ -1,0 +1,5 @@
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Stregsystem/obj/Debug/Stregsystem.csproj.CoreCompileInputs.cache
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Stregsystem/bin/Debug/Stregsystem.dll
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Stregsystem/bin/Debug/Stregsystem.pdb
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Stregsystem/obj/Debug/Stregsystem.dll
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Stregsystem/obj/Debug/Stregsystem.pdb

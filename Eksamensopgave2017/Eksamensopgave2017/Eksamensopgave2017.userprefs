@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{A8C4D93E-FEB7-46AA-87CE-2AF138391681}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleMultipleBuy01.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleReceipt01.cs">
     <Files>
-      <File FileName="ConsoleMultipleBuy01.cs" Line="124" Column="57" />
+      <File FileName="ConsoleReceipt.cs" Line="58" Column="71" />
+      <File FileName="ConsoleReceipt01.cs" Line="9" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

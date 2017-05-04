@@ -1,10 +1,12 @@
 ﻿using System;
+using Stregsystem;
 using System.Collections.Generic;
 
 namespace Eksamensopgave2017
 {
     class StregsystemCLI : IStregsystemUI
     {
+        private bool _running = true;
         private IStregsystem _stregsystem;
 
         public StregsystemCLI(IStregsystem stregsystem)
@@ -14,41 +16,60 @@ namespace Eksamensopgave2017
 
         public void PrintDisplay()
         {
-            Stregsystem sss = new Stregsystem();
-            BuyTransaction transaction = new BuyTransaction(sss.GetUserByID(3), DateTime.Now, sss.GetProductByID(2));
+            //BuyTransaction transaction = new BuyTransaction(sss.GetUserByID(3), DateTime.Now, sss.GetProductByID(2));
             
-			
+
 			ConsoleMenu menu = new ConsoleMenu();
-            ConsoleReceipt receipt = new ConsoleReceipt(transaction);
-            ConsoleMultipleBuy01 multi = new ConsoleMultipleBuy01();
-            ConsoleMultipleBuy02 multi2 = new ConsoleMultipleBuy02();
+            //ConsoleReceipt receipt = new ConsoleReceipt(transaction);
+            //ConsoleMultipleBuy01 multi = new ConsoleMultipleBuy01();
+            //ConsoleMultipleBuy02 multi2 = new ConsoleMultipleBuy02();
 
             menu.Print();
-            Console.ReadLine();
-            receipt.Print();
-            Console.ReadLine();
-            multi.Print();
-            Console.ReadLine();
-            multi2.Print();
-            Console.ReadLine();
+            //Console.ReadLine();
+            //receipt.Print();
+            //Console.ReadLine();
+            //multi.Print();
+            //Console.ReadLine();
+            //multi2.Print();
+            //Console.ReadLine();
         }
 
         public void DisplayUserNotFound(string username)
         {
-            Console.WriteLine($"{username} not found");
+			Console.BackgroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.White;
+            string write = $"   A username such as {username} does not exist (yet)   ";
+			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop - 1);
+			Console.WriteLine(write);
         }
 
-        public void DisplayProductNotFound(string product)
+        public void DisplayProductNotFound()
         {
-            Console.WriteLine($"{product} not found");
+			Console.BackgroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.White;
+			string write = $"          A product with that ID does not exist           ";
+			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop - 1);
+			Console.WriteLine(write);
         }
 
-        public void DisplayUserInfo(User user)
-        {
-            Console.WriteLine($"{user} not found");
-        }
+		public void DisplayProductNotActive(string product)
+		{
+			Console.BackgroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.White;
+            string write = null;
 
-        public void DisplayTooManyArgumentsError(string command)
+            if (product.Length == 1)
+                write = $"     A product with the ID: {product} is not currently active     ";
+            else if (product.Length == 2)
+				write = $"    A product with the ID: {product} is not currently active     ";
+            else
+				write = $"   A product with the ID: {product} is not currently active    ";
+
+			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop - 1);
+            Console.WriteLine(write);
+		}
+
+        public void DisplayTooManyArgumentsError()
         {
             Console.WriteLine($"!ERROR!\nToo many arguments!");
         }
@@ -57,20 +78,7 @@ namespace Eksamensopgave2017
         {
             Console.WriteLine($"!ERROR!\nCommand not found!");
         }
-
-        public void DisplayUserBuysProduct(BuyTransaction transaction)
-        {
-            Console.WriteLine(transaction.ToString());
-        }
-
-        public void DisplayUserBuysProduct(int count, BuyTransaction transaction)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine(transaction.ToString());
-            }
-        }
-
+       
         public void DisplayInsufficientCash(User user, Product product)
         {
             Console.WriteLine($"{user.Firstname} {user.Lastname} (ID {user.ID}) does not have money enough for the attempted purchase\n" +
@@ -85,10 +93,13 @@ namespace Eksamensopgave2017
 
         public void Start()
         {
-            PrintDisplay();
-            string command = Console.ReadLine();
-            CommandEntered?.Invoke(command);
-            Console.ReadLine();
+            while (_running)
+            {
+				PrintDisplay();
+				string command = Console.ReadLine();
+				CommandEntered?.Invoke(command);
+				Console.ReadLine();
+            }
         }
         
         public void Close()

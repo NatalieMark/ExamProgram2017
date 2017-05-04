@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eksamensopgave2017", "Eksamensopgave2017.csproj", "{A8C4D93E-FEB7-46AA-87CE-2AF138391681}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stregsystem", "Stregsystem\Stregsystem.csproj", "{A041FE8A-8204-4BBD-A8A9-E3A8C578933B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +15,9 @@ Global
 		{A8C4D93E-FEB7-46AA-87CE-2AF138391681}.Debug|x86.Build.0 = Debug|x86
 		{A8C4D93E-FEB7-46AA-87CE-2AF138391681}.Release|x86.ActiveCfg = Release|x86
 		{A8C4D93E-FEB7-46AA-87CE-2AF138391681}.Release|x86.Build.0 = Release|x86
+		{A041FE8A-8204-4BBD-A8A9-E3A8C578933B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A041FE8A-8204-4BBD-A8A9-E3A8C578933B}.Debug|x86.Build.0 = Debug|Any CPU
+		{A041FE8A-8204-4BBD-A8A9-E3A8C578933B}.Release|x86.ActiveCfg = Release|Any CPU
+		{A041FE8A-8204-4BBD-A8A9-E3A8C578933B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -4,20 +4,16 @@ using Stregsystem;
 
 namespace Eksamensopgave2017
 {
-	public class ConsoleReceipt : ConsoleDesign
-	{
-		public ConsoleReceipt(BuyTransaction transaction, int amount, bool isQuickbuy)
-		{
-			this.Transaction = transaction;
-            this.Amount = amount;
-            this.IsQuickbuy = isQuickbuy;
-		}
+    public class ConsoleReceipt01 : ConsoleDesign
+    {
+        public ConsoleReceipt01(BuyTransaction transaction)
+        {
+            this.Transaction = transaction;
+        }
 
-		public BuyTransaction Transaction { get; set; }
+        public BuyTransaction Transaction { get; set; }
 
-		public int Amount { get; set; }
-
-        public bool IsQuickbuy { get; set; }
+        public string TypeOfPurchase { get; set; }
 
 		public override void Header()
 		{
@@ -25,9 +21,9 @@ namespace Eksamensopgave2017
 
 			List<string> printingList = new List<string>();
 
-			printingList.Add("____ ____ ____ ____    ___ ___");
-			printingList.Add("|__/ |___ |    |___ | | __] |");
-			printingList.Add("|  \\ |___ |___ |___ | |     |");
+            printingList.Add("____ ____ ____ ____    ___ ___");
+            printingList.Add("|__/ |___ |    |___ | | __] |");
+            printingList.Add("|  \\ |___ |___ |___ | |     |");
 
 			foreach (string line in printingList)
 			{
@@ -36,9 +32,9 @@ namespace Eksamensopgave2017
 			}
 			Console.WriteLine();
 		}
-
-		public override void Body()
-		{
+  
+        public override void Body()
+        {
 			Console.BackgroundColor = ConsoleColor.Gray;
 			Console.ForegroundColor = ConsoleColor.Black;
 
@@ -54,34 +50,27 @@ namespace Eksamensopgave2017
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
-			printingList.Add("|                                                        |");
 			printingList.Add("|________________________________________________________|");
 
 			foreach (string line in printingList)
 			{
 				Console.SetCursorPosition((Console.WindowWidth - line.Length) / 2, Console.CursorTop);
 				Console.WriteLine(line);
-			}
-		}
+            }
+        }
 
-		public void BodyText()
-		{
-			Console.SetCursorPosition(0, 7);
+        public void BodyText()
+        {
+            Console.SetCursorPosition(0, 7);
 
-            string quickbuy = "";
-            if (IsQuickbuy)
-                quickbuy = "Quickbuy";
-
-
-            List < string > printingList = new List<string>();
-            printingList.Add($"{Transaction.User.Firstname} {Transaction.User.Lastname} made a {quickbuy}purchase");
-			printingList.Add("and bought the following products:");
-			printingList.Add("");
-            printingList.Add($"{Amount}x {Transaction.Product.Name} {Transaction.Product.Price},-");
-			printingList.Add("");
-			printingList.Add("·······························");
-            printingList.Add($"Total price: {Amount * Transaction.Product.Price},-");
+			List<string> printingList = new List<string>();
+            printingList.Add($"{Transaction.User.Firstname} {Transaction.User.Lastname} made a Quickbuy");
+			printingList.Add("and bought following product:");
             printingList.Add("");
+            printingList.Add($"{Transaction.Product.Name} {Transaction.Product.Price},-");
+			printingList.Add("");
+			printingList.Add("");
+			printingList.Add("");
 			printingList.Add($"{Transaction.Date}");
 
 			foreach (string line in printingList)
@@ -89,16 +78,17 @@ namespace Eksamensopgave2017
 				Console.SetCursorPosition((Console.WindowWidth - line.Length) / 2, Console.CursorTop);
 				Console.WriteLine(line);
 			}
-		}
+        }
 
-		public override void Print()
-		{
+        public override void Print()
+        {
 			Console.BackgroundColor = ConsoleColor.Black;
 			Console.ForegroundColor = ConsoleColor.Gray;
-			Console.Clear();
-			Header();
-			Body();
-			BodyText();
-		}
-	}
+            Console.Clear();
+            Header();
+            Body();
+
+            BodyText();
+        }
+    }
 }

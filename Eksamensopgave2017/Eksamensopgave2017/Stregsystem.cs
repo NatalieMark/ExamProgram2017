@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Stregsystem;
 
 namespace Eksamensopgave2017
 {
 	class Stregsystem : IStregsystem
 	{
+        //Lav private
 		public List<Product> ListOfProducts = new List<Product>();
 		public List<User> ListOfUsers = new List<User>();
 		public List<Transaction> TransactionList = new List<Transaction>();
+        private WritingFiles _writingfiles = new WritingFiles();
 
         public Stregsystem()
         {
 			GetAllUsers();
-            GetAllProducts();
+            GetAllProducts();          
 		}
 
         public void GetAllProducts()
@@ -92,38 +95,34 @@ namespace Eksamensopgave2017
 			get { return ListOfProducts.Where((Product product) => product.Active); }
 		}
 
-		public InsertCashTransaction AddCreditsToAccount(User user, int amount)
+		public InsertCashTransaction AddCreditsToAccount(User user, decimal amount)
 		{
-			decimal newAmount = decimal.Parse((string)amount.ToString());
-			return new InsertCashTransaction(user, DateTime.Now, newAmount);
+				InsertCashTransaction insertCashTransaction = new InsertCashTransaction(user, DateTime.Now, amount);
+				ExecuteTransaction(insertCashTransaction);
+				_writingfiles.WritingUsersFile(insertCashTransaction);
+
+                return insertCashTransaction;
 		}
 
 		public BuyTransaction BuyProduct(User user, Product product)
-		{
-			try
-			{
-				BuyTransaction buytransaction = new BuyTransaction(user, DateTime.Now, product);
-				WritingFiles writingFiles = new WritingFiles();
+        {
+            BuyTransaction buytransaction = new BuyTransaction(user, DateTime.Now, product);
+            ExecuteTransaction(buytransaction);
+            _writingfiles.WritingUsersFile(buytransaction);
 
-				writingFiles.WritingUsersFile(buytransaction);
-
-				return buytransaction; //return 
-			}
-			catch (InsufficientCreditsException e)
-			{
-				Console.WriteLine(e.Message);
-			}
-			return null; //If "try" fails, return null
+		    return buytransaction;
 		}
 
 		public Product GetProductByID(int productID)
 		{
-            return ListOfProducts.First(product => (product.ID == productID));
-		}
-
-        public User GetUserByID(int userID)
-		{
-            return ListOfUsers.First(user => (user.ID == userID));
+            try
+            {
+            	return ListOfProducts.First(product => (product.ID == productID));
+            }
+            catch(Exception)
+            {
+				return null;
+            }
 		}
 
 		public IEnumerable<Transaction> GetTransactions(User user, int count)
@@ -137,17 +136,16 @@ namespace Eksamensopgave2017
 			return ListOfUsers.FirstOrDefault(predicate);
 		}
 
-		public User GetUserByUsername(string username)
-		{
-			if (ListOfUsers != null)
+        public User GetUserByUsername(string username)
+        {
+			try
 			{
-				foreach (User user in ListOfUsers)
-					if (user.Username == username)
-						return user;
-					else
-						throw new UserDoesNotExistException($"A user with the username: {username} does not exist");
+				return ListOfUsers.First(user => string.Compare(user.Username, username) == 0);
 			}
-			throw new EmptyListException("List of users is empty");
-		}
+			catch (Exception)
+			{
+				return null;
+			}
+        }
 	}
 }

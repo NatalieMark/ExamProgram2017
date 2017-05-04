@@ -37,41 +37,23 @@
     <Compile Include="Stregsystem.cs" />
     <Compile Include="StregsystemCLI.cs" />
     <Compile Include="StregsystemController.cs" />
-    <Compile Include="Users Products\Product.cs" />
-    <Compile Include="Users Products\SeasonalProduct.cs" />
-    <Compile Include="Users Products\User.cs" />
-    <Compile Include="Files\ReadingFiles.cs" />
-    <Compile Include="Files\WritingFile.cs" />
-    <Compile Include="Transaction\BuyTransaction.cs" />
-    <Compile Include="Transaction\InsertCashTransaction.cs" />
-    <Compile Include="Transaction\Transaction.cs" />
-    <Compile Include="Interface\IStregsystem.cs" />
-    <Compile Include="Interface\IStregsystemUI.cs" />
-    <Compile Include="Exceptions\EmptyListException.cs" />
-    <Compile Include="Exceptions\InactiveException.cs" />
-    <Compile Include="Exceptions\InsufficientCreditsException.cs" />
-    <Compile Include="Exceptions\InvalidValueException.cs" />
-    <Compile Include="Exceptions\ParseFailedException.cs" />
-    <Compile Include="Exceptions\ProductDoesNotExistException.cs" />
-    <Compile Include="Exceptions\UserDoesNotExistException.cs" />
-    <Compile Include="Event\StregsystemEvent.cs" />
-    <Compile Include="Event\UserBalanceNotification.cs" />
     <Compile Include="ConsoleDesign.cs" />
     <Compile Include="ConsoleMenu.cs" />
-    <Compile Include="ConsoleReceipt.cs" />
+    <Compile Include="ConsoleReceipt01.cs" />
     <Compile Include="ConsoleMultipleBuy01.cs" />
     <Compile Include="Buttons\ButtonBase.cs" />
     <Compile Include="Buttons\Button.cs" />
     <Compile Include="ConsoleMultipleBuy02.cs" />
+    <Compile Include="ConsoleReceipt.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Users Products\" />
-    <Folder Include="Files\" />
-    <Folder Include="Transaction\" />
-    <Folder Include="Interface\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Event\" />
     <Folder Include="Buttons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Stregsystem\Stregsystem.csproj">
+      <Project>{A041FE8A-8204-4BBD-A8A9-E3A8C578933B}</Project>
+      <Name>Stregsystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

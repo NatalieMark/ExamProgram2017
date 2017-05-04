@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Stregsystem;
 
 namespace Eksamensopgave2017
 {
@@ -112,11 +113,11 @@ namespace Eksamensopgave2017
 		{
 			Console.SetCursorPosition(0, 20);
 
-			string write = "Buy multiple products (username, product ID, quantity)";
+			string write = "Buy multiple products (username product ID quantity)";
 			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop);
 			Console.WriteLine(write);
 
-			string writeMore = "(or tap the right arrow key to see more products)";
+			string writeMore = "(or write \"more\" to see more products)";
             Console.SetCursorPosition((Console.WindowWidth - writeMore.Length) / 2, Console.CursorTop);
             Console.WriteLine(writeMore);
 

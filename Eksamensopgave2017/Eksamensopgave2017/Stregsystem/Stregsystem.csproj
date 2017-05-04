@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A041FE8A-8204-4BBD-A8A9-E3A8C578933B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Stregsystem</RootNamespace>
+    <AssemblyName>Stregsystem</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Exceptions\EmptyListException.cs" />
+    <Compile Include="Exceptions\InactiveException.cs" />
+    <Compile Include="Exceptions\InsufficientCreditsException.cs" />
+    <Compile Include="Exceptions\InvalidValueException.cs" />
+    <Compile Include="Exceptions\ParseFailedException.cs" />
+    <Compile Include="Exceptions\ProductDoesNotExistException.cs" />
+    <Compile Include="Exceptions\UserDoesNotExistException.cs" />
+    <Compile Include="Files\ReadingFiles.cs" />
+    <Compile Include="Files\WritingFile.cs" />
+    <Compile Include="Interface\IStregsystem.cs" />
+    <Compile Include="Interface\IStregsystemUI.cs" />
+    <Compile Include="Transaction\BuyTransaction.cs" />
+    <Compile Include="Transaction\InsertCashTransaction.cs" />
+    <Compile Include="Transaction\Transaction.cs" />
+    <Compile Include="Users Products\Product.cs" />
+    <Compile Include="Users Products\SeasonalProduct.cs" />
+    <Compile Include="Users Products\User.cs" />
+    <Compile Include="Event\StregsystemEvent.cs" />
+    <Compile Include="Event\UserBalanceNotification.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Files\" />
+    <Folder Include="Interface\" />
+    <Folder Include="Transaction\" />
+    <Folder Include="Users Products\" />
+    <Folder Include="Event\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

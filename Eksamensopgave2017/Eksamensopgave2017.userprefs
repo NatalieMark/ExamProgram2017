@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{A8C4D93E-FEB7-46AA-87CE-2AF138391681}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Eksamensopgave2017/ConsoleReceipt.cs">
     <Files>
-      <File FileName="Eksamensopgave2017/ConsoleReceipt.cs" Line="59" Column="13" />
+      <File FileName="Eksamensopgave2017/ConsoleReceipt.cs" Line="89" Column="37" />
       <File FileName="Eksamensopgave2017/ConsoleMenu.cs" Line="64" Column="74" />
     </Files>
   </MonoDevelop.Ide.Workbench>
