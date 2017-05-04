@@ -76,14 +76,6 @@ namespace Eksamensopgave2017
 			}
 		}
 
-		public void AddToTransactionList(Transaction instance)
-		{
-			if (instance != null)
-				TransactionList.Add(instance);
-			else
-				throw new ArgumentNullException("Missing transaction instance");
-		}
-
 		public void ExecuteTransaction(Transaction transaction)
 		{
 			transaction.Execute();
@@ -97,11 +89,11 @@ namespace Eksamensopgave2017
 
 		public InsertCashTransaction AddCreditsToAccount(User user, decimal amount)
 		{
-				InsertCashTransaction insertCashTransaction = new InsertCashTransaction(user, DateTime.Now, amount);
-				ExecuteTransaction(insertCashTransaction);
-				_writingfiles.WritingUsersFile(insertCashTransaction);
-
-                return insertCashTransaction;
+			InsertCashTransaction insertCashTransaction = new InsertCashTransaction(user, DateTime.Now, amount);
+			ExecuteTransaction(insertCashTransaction);
+			_writingfiles.WritingUsersFile(insertCashTransaction);
+            user.NumberOfTransactions++;
+            return insertCashTransaction;
 		}
 
 		public BuyTransaction BuyProduct(User user, Product product)
@@ -109,8 +101,9 @@ namespace Eksamensopgave2017
             BuyTransaction buytransaction = new BuyTransaction(user, DateTime.Now, product);
             ExecuteTransaction(buytransaction);
             _writingfiles.WritingUsersFile(buytransaction);
+            user.NumberOfTransactions++;
 
-		    return buytransaction;
+            return buytransaction;
 		}
 
 		public Product GetProductByID(int productID)
@@ -127,7 +120,7 @@ namespace Eksamensopgave2017
 
 		public IEnumerable<Transaction> GetTransactions(User user, int count)
 		{
-			return TransactionList.Where((Transaction transaction) => (transaction.User == user)).Take(count);
+            return TransactionList.Where((Transaction transaction) => (transaction.User.ID == user.ID)).Take(count);
 		}
 
 		public User GetUser(Func<User, bool> predicate)
@@ -138,14 +131,12 @@ namespace Eksamensopgave2017
 
         public User GetUserByUsername(string username)
         {
-			try
+			foreach (User user in ListOfUsers)
 			{
-				return ListOfUsers.First(user => string.Compare(user.Username, username) == 0);
+                if (user.Username == username)
+					return user;
 			}
-			catch (Exception)
-			{
-				return null;
-			}
+            return null;
         }
 	}
 }

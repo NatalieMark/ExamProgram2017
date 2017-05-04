@@ -2,6 +2,7 @@
 using System.Linq;
 using Stregsystem;
 
+// NOT ENOUGH MONEY
 namespace Eksamensopgave2017
 {
 	class StregsystemController
@@ -20,6 +21,7 @@ namespace Eksamensopgave2017
         public void HandleInput(string command)
         {
             string[] commandSplitted = null;
+            User user = _stregsystem.GetUserByUsername(command); 
 
             if (command != null)
             {
@@ -27,10 +29,15 @@ namespace Eksamensopgave2017
 
 				if (commandSplitted.Length == 1)
                 {
-					if (command == "multi")
+                    if (command == "multi")
                         MultiBuyProducts01();
-					else if (command == _stregsystem.GetUserByUsername(command).Username)
-						UserInfo(command);
+                    else if (user != null)
+                    {
+                        if (command == user.Username)
+                            UserInfo(command);
+                    }
+                    else
+                        _ui.DisplayGeneralError();
                 }
                 else if (commandSplitted.Length == 2)
                 {
@@ -60,7 +67,7 @@ namespace Eksamensopgave2017
 					
 					if (product.Active)
 					{
-						BuyTransaction purchase = _stregsystem.BuyProduct(user, product);
+                        BuyTransaction purchase = _stregsystem.BuyProduct(user, product);
                         ConsoleReceipt receipt = new ConsoleReceipt(purchase, quantity, false);
 						receipt.Print();
 					}
@@ -77,7 +84,7 @@ namespace Eksamensopgave2017
         public void MultiBuyProducts01()
         {
             bool _running = true;
-			ConsoleMultipleBuy01 multibuyPage01 = new ConsoleMultipleBuy01();
+            ConsoleMultipleBuy01 multibuyPage01 = new ConsoleMultipleBuy01(_stregsystem);
 
             while(_running)
             {
@@ -146,45 +153,14 @@ namespace Eksamensopgave2017
 			}
         }
 
-        public void BuyMultipleProducts()
-        {
-            /*
-			string username = commandArray[0];
-			int productID;
-			int.TryParse(commandArray[1], out productID);
-
-			User user;
-			Product product;
-
-			if (_stregsystem.GetUserByUsername(username) != null)
-			{
-				user = _stregsystem.GetUserByUsername(username);
-
-				if (_stregsystem.GetProductByID(productID) != null)
-				{
-					product = _stregsystem.GetProductByID(productID);
-
-					if (product.Active)
-					{
-						BuyTransaction purchase = _stregsystem.BuyProduct(user, product);
-						ConsoleReceipt receipt = new ConsoleReceipt(purchase, 1, false);
-						receipt.Print();
-					}
-					else
-						_ui.DisplayProductNotActive($"{product.ID}");
-				}
-				else
-					_ui.DisplayProductNotFound();
-			}
-			else
-				_ui.DisplayUserNotFound(username);
-				*/
-        }
-
         public void UserInfo(string username)
         {
             User user = _stregsystem.GetUserByUsername(username);
-            Console.WriteLine(user.Lastname);
+            ConsoleUserInfo01 userInfo = new ConsoleUserInfo01(user);
+            userInfo.Print();
+            Console.ReadLine();
+            ConsoleUserInfo02 userinfo2 = new ConsoleUserInfo02(user, _stregsystem);
+            userinfo2.Print();
         }
 		/*public bool CheckIfUsernameExist(string username)
 		{

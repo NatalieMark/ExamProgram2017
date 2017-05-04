@@ -9,7 +9,7 @@
 		void DisplayTooManyArgumentsError();
 		void DisplayAdminCommandNotFoundMessage(string adminCommand);
 		void DisplayInsufficientCash(User user, Product product);
-		void DisplayGeneralError(string errorString);
+		void DisplayGeneralError();
 		void Start();
 		void Close();
 		event StregsystemEvent CommandEntered;

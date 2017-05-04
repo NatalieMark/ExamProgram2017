@@ -180,6 +180,8 @@ namespace Stregsystem
 				&& this.Username.Equals(((User)user).Username)
 				&& this.Email.Equals(((User)user).Email)
 				&& this.Balance.Equals(((User)user).Balance));
+
+            throw new Exception("HOV");
 		}
 
 		public int CompareTo(User other)

@@ -16,22 +16,8 @@ namespace Eksamensopgave2017
 
         public void PrintDisplay()
         {
-            //BuyTransaction transaction = new BuyTransaction(sss.GetUserByID(3), DateTime.Now, sss.GetProductByID(2));
-            
-
 			ConsoleMenu menu = new ConsoleMenu();
-            //ConsoleReceipt receipt = new ConsoleReceipt(transaction);
-            //ConsoleMultipleBuy01 multi = new ConsoleMultipleBuy01();
-            //ConsoleMultipleBuy02 multi2 = new ConsoleMultipleBuy02();
-
             menu.Print();
-            //Console.ReadLine();
-            //receipt.Print();
-            //Console.ReadLine();
-            //multi.Print();
-            //Console.ReadLine();
-            //multi2.Print();
-            //Console.ReadLine();
         }
 
         public void DisplayUserNotFound(string username)
@@ -86,9 +72,13 @@ namespace Eksamensopgave2017
                               $"Current balance: {user.Balance}");
         }
 
-        public void DisplayGeneralError(string errorString)
+        public void DisplayGeneralError()
         {
-            Console.WriteLine(errorString);
+			Console.BackgroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.White;
+			string write = $"            Something went wrong  -  Try again            ";
+			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop - 1);
+			Console.WriteLine(write);
         }
 
         public void Start()

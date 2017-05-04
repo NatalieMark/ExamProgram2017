@@ -4,16 +4,14 @@ using Stregsystem;
 
 namespace Eksamensopgave2017
 {
-    public class ConsoleReceipt01 : ConsoleDesign
+    public class ConsoleUserInfo01 : ConsoleDesign
     {
-        public ConsoleReceipt01(BuyTransaction transaction)
+        public ConsoleUserInfo01(User user)
         {
-            this.Transaction = transaction;
+            this.User = user;
         }
 
-        public BuyTransaction Transaction { get; set; }
-
-        public string TypeOfPurchase { get; set; }
+        public User User { get; set; }
 
 		public override void Header()
 		{
@@ -21,9 +19,9 @@ namespace Eksamensopgave2017
 
 			List<string> printingList = new List<string>();
 
-            printingList.Add("____ ____ ____ ____    ___ ___");
-            printingList.Add("|__/ |___ |    |___ | | __] |");
-            printingList.Add("|  \\ |___ |___ |___ | |     |");
+			printingList.Add("_  _ ____ ____ ____    _ _  _ ____ ____");
+			printingList.Add("|  | [__  |___ |__/    | |\\ | |___ |  |");
+			printingList.Add("|__| ___] |___ |  \\    | | \\| |    |__|");
 
 			foreach (string line in printingList)
 			{
@@ -35,6 +33,7 @@ namespace Eksamensopgave2017
   
         public override void Body()
         {
+            int lineLength = 0;
 			Console.BackgroundColor = ConsoleColor.Gray;
 			Console.ForegroundColor = ConsoleColor.Black;
 
@@ -42,6 +41,8 @@ namespace Eksamensopgave2017
 
 			printingList.Add(" ________________________________________________________ ");
 			printingList.Add("|                                                        |");
+            printingList.Add("|                                                        |");
+			printingList.Add("|   ··················································   |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
@@ -50,45 +51,51 @@ namespace Eksamensopgave2017
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
+			printingList.Add("|                                                        |");
+			printingList.Add("|                                                        |");
+			printingList.Add("|           Hit enter to see the last purhases           |");
 			printingList.Add("|________________________________________________________|");
 
 			foreach (string line in printingList)
 			{
 				Console.SetCursorPosition((Console.WindowWidth - line.Length) / 2, Console.CursorTop);
 				Console.WriteLine(line);
-            }
+                lineLength = line.Length;
+			}
         }
 
-        public void BodyText()
-        {
+		public void BodyText()
+		{
             Console.SetCursorPosition(0, 7);
 
 			List<string> printingList = new List<string>();
-            printingList.Add($"{Transaction.User.Firstname} {Transaction.User.Lastname} made a Quickbuy");
-			printingList.Add("and bought following product:");
-            printingList.Add("");
-            printingList.Add($"{Transaction.Product.Name} {Transaction.Product.Price},-");
-			printingList.Add("");
-			printingList.Add("");
-			printingList.Add("");
-			printingList.Add($"{Transaction.Date}");
 
-			foreach (string line in printingList)
-			{
-				Console.SetCursorPosition((Console.WindowWidth - line.Length) / 2, Console.CursorTop);
+            printingList.Add($"   About {User.Firstname} {User.Lastname}");
+			printingList.Add("");
+			printingList.Add("");
+			printingList.Add($"Username:         {User.Username}");
+			printingList.Add("");
+			printingList.Add($"User ID:          {User.ID}");
+			printingList.Add("");
+			printingList.Add($"Email:            {User.Email}");
+			printingList.Add("");
+			printingList.Add($"Current Balace:   {User.Balance}");
+
+            foreach (string line in printingList)
+            {
+				Console.SetCursorPosition((Console.WindowWidth - 50) / 2, Console.CursorTop);
 				Console.WriteLine(line);
-			}
+            }
         }
 
         public override void Print()
         {
-			Console.BackgroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Black;
 			Console.ForegroundColor = ConsoleColor.Gray;
-            Console.Clear();
-            Header();
-            Body();
-
-            BodyText();
-        }
+			Console.Clear();
+			Header();
+			Body();
+			BodyText();
+		}
     }
 }

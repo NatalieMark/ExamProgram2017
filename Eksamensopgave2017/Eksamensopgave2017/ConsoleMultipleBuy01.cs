@@ -8,11 +8,12 @@ namespace Eksamensopgave2017
     {
         private int _productsPrinted;
 
-        public ConsoleMultipleBuy01()
+        public ConsoleMultipleBuy01(IStregsystem stregsystem)
         {
+            this.stregsystem = stregsystem;
         }
 
-        Stregsystem stregsystem = new Stregsystem();
+        IStregsystem stregsystem;
         List<Product> activeProductsList = new List<Product>();
         List<int> activeProductsCounter = new List<int>();
 
@@ -105,7 +106,7 @@ namespace Eksamensopgave2017
 			for (int i = 0; i < _productsPrinted; i++)
 			{
 				Console.SetCursorPosition((Console.WindowWidth + 53) / 2, Console.CursorTop);
-                Console.WriteLine(activeProductsList[i].Price);
+                Console.WriteLine($"{activeProductsList[i].Price,6}");
 			}
         }
 

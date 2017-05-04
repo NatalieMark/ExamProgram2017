@@ -39,12 +39,13 @@
     <Compile Include="StregsystemController.cs" />
     <Compile Include="ConsoleDesign.cs" />
     <Compile Include="ConsoleMenu.cs" />
-    <Compile Include="ConsoleReceipt01.cs" />
     <Compile Include="ConsoleMultipleBuy01.cs" />
     <Compile Include="Buttons\ButtonBase.cs" />
     <Compile Include="Buttons\Button.cs" />
     <Compile Include="ConsoleMultipleBuy02.cs" />
     <Compile Include="ConsoleReceipt.cs" />
+    <Compile Include="ConsoleUserInfo01.cs" />
+    <Compile Include="ConsoleUserInfo02.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Buttons\" />
