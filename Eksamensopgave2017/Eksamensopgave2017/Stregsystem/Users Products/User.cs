@@ -3,6 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace Stregsystem
 {
+    /// <summary>
+    /// User inherits from IComparable<User>
+    /// User has an ID, firstname lastname, email, balanse and a number of transactions.
+    /// </summary>
 	public class User : IComparable<User>
 	{
 		private int _iD;
@@ -75,7 +79,7 @@ namespace Stregsystem
 		{
 			get
 			{
-				if (_username != null && _usernameValidator.IsMatch(_username) == true)
+				if (_username != null && _usernameValidator.IsMatch(_username))
 					return _username;
 				else
 				{
@@ -85,7 +89,7 @@ namespace Stregsystem
 			}
 			set
 			{
-                if (value != null && _usernameValidator.IsMatch(value) == true)
+                if (value != null && _usernameValidator.IsMatch(value))
 					_username = value;
 				else
 					throw new ArgumentNullException("Username can't be empty");
@@ -129,17 +133,7 @@ namespace Stregsystem
 					throw new InvalidValueException("Number of transactions must be larger than or equal to 0");
 			}
 		}
-/*
-		public void UserBalanceNotification(User user, decimal balance)
-		{
-			user.Balance = balance;
 
-			if (user.Balance < 50)
-				Console.WriteLine($"!!!WARNING!!!\n" +
-								  "You have less than 50,- left!\n" +
-								  $"Your current balance is: {Balance},- ");
-		}
-*/
 		public override string ToString()
 		{
 			return string.Format($"{Firstname} {Lastname} [{Username}] ({Email})");
@@ -168,22 +162,18 @@ namespace Stregsystem
 			return false;
 		}
 
+        //Made Regex for Email- and username validation
 		private static readonly Regex _emailLocalpartValidator = new Regex(@"^[a-zA-Z0-9_@\.\-]+$");
 		private static readonly Regex _emailDomainValidatorMayConsistOf = new Regex(@"^[a-zA-Z0-9@\.\-]+$");
 		private static readonly Regex _usernameValidator = new Regex(@"^[a-z0-9_]+$");
 
+        //Assuming ID is unique
 		public override bool Equals(object user)
 		{
-			return (this.ID.Equals(((User)user).ID)
-				&& this.Firstname.Equals(((User)user).Firstname)
-				&& this.Lastname.Equals(((User)user).Lastname)
-				&& this.Username.Equals(((User)user).Username)
-				&& this.Email.Equals(((User)user).Email)
-				&& this.Balance.Equals(((User)user).Balance));
+            return (this.ID == ((User)user).ID);
+        }
 
-            throw new Exception("HOV");
-		}
-
+        //Comparing users ID, so the two users don't have the same ID
 		public int CompareTo(User other)
 		{
 			if (other != null)

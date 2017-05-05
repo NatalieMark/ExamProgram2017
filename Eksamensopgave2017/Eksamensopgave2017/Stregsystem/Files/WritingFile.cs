@@ -4,6 +4,9 @@ using System.IO;
 
 namespace Stregsystem
 {
+    /// <summary>
+    /// Writingfiles writes a log over all transactions.
+    /// </summary>
 	public class WritingFiles
 	{
         public WritingFiles()

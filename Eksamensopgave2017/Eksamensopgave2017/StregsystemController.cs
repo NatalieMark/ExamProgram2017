@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Stregsystem;
 
-// NOT ENOUGH MONEY
 namespace Eksamensopgave2017
 {
+    /// <summary>
+    /// StregsystemController handles what happens in the program.
+    /// The input from the user comes in as one string and is handled here.
+    /// </summary>
 	class StregsystemController
 	{
 		private IStregsystemUI _ui;
@@ -20,6 +22,7 @@ namespace Eksamensopgave2017
 			AddAdminCommands();
 		}
 
+        // All the admin commands and what they do
         public void AddAdminCommands()
         {
             AdminCommands.Add(":activate", args => _stregsystem.GetProductByID(int.Parse(args[1])).Active = true);
@@ -31,42 +34,49 @@ namespace Eksamensopgave2017
 			AdminCommands.Add(":quit", args => _ui.Close());
 		}
 
+        // The one input is handled here, splitted and putted into a stringarray
         public void HandleInput(string command)
         {
             string[] commandSplitted = null;
             User user = _stregsystem.GetUserByUsername(command); 
 
+            //Checks if the command is empty
             if (command != null)
             {
                 commandSplitted = command.Split(' ');
 
+                // Checks if the command if it starts with ":", if <true>, it is an admin command.
                 if (command.StartsWith(":"))
                 {
                     try
                     {
 						AdminCommands[commandSplitted[0]](commandSplitted);
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        Console.WriteLine(e.Message);
+                        _ui.DisplayAdminCommandNotFoundMessage();
                     }
                 }
+                // If it is not an admin command, it should be handled differently.
                 else
                 {
                     if (commandSplitted.Length == 1)
                         commandParse01(command, user);
                     else if (commandSplitted.Length == 2)
-                        commansParse02(commandSplitted);
+                        commandParse02(commandSplitted);
                     else
                         _ui.DisplayTooManyArgumentsError();
                 }
             }
 		}
 
+        // If command consists of one word
         public void commandParse01(string command, User user)
         {
+            // If the word is "multi"
 			if (command == "multi")
 				MultiBuyProducts01();
+            // If the word contains a username
 			else if (user != null)
 			{
 				if (command == user.Username)
@@ -76,33 +86,44 @@ namespace Eksamensopgave2017
 				_ui.DisplayGeneralError();
         }
 
-        public void commansParse02(string[] commandSplitted)
+        // If commans consists of two words it is a quickbuy
+        public void commandParse02(string[] commandSplitted)
         {
-			//Quickbuy
-			string username = commandSplitted[0];
-			int productID;
-			int.TryParse(commandSplitted[1], out productID);
-			Receipt(username, productID, 1);
+            string username = commandSplitted[0];
+            int productID;
+            int.TryParse(commandSplitted[1], out productID);
+			// "1" Because a Quickbuy only consists of one single product
+            Receipt(username, productID, 1);
         }
 
+        // The transaction is handled here
         public void Receipt(string username, int productID, int quantity)
         {
             User user;
             Product product;
 
+            // Checks whether a username as the given, exists
             if (_stregsystem.GetUserByUsername(username) != null)
             {
                 user = _stregsystem.GetUserByUsername(username);
 
-                if (_stregsystem.GetProductByID(productID) != null)
+				// Checks whether a product ID as the given, exists
+				if (_stregsystem.GetProductByID(productID) != null)
                 {
                     product = _stregsystem.GetProductByID(productID);
 
-                    if (product.Active)
+					// Checks whether the product is active
+					if (product.Active)
                     {
+                        // Checks if the user can afford the product and the quantity of it, and if not, if the product can be bought on credit
                         if (product.Price * quantity <= user.Balance || product.CanBeBoughtOnCredit)
                         {
-                            BuyTransaction purchase = _stregsystem.BuyProduct(user, product);
+                            BuyTransaction purchase = null;
+
+                            for (int i = 0; i < quantity; i++)
+                            {
+							    purchase = _stregsystem.BuyProduct(user, product);
+                            }
                             ConsoleReceipt receipt = new ConsoleReceipt(purchase, quantity, false);
                             receipt.Print();
                         }
@@ -119,6 +140,7 @@ namespace Eksamensopgave2017
                 _ui.DisplayUserNotFound(username);
         }
 
+        // Disply for multibuy
         public void MultiBuyProducts01()
         {
             bool _running = true;
@@ -129,6 +151,7 @@ namespace Eksamensopgave2017
 				string[] commandSplitted = null;
                 string command = Console.ReadLine();
 
+                // Handles input (wheter to go to next display or to buy)
                 if (command != null)
                 {
                     commandSplitted = command.Split(' ');
@@ -160,7 +183,8 @@ namespace Eksamensopgave2017
             }
         }
 
-        public void MultiBuyProducts02()
+		// Disply for multibuy
+		public void MultiBuyProducts02()
         {
 			bool _running = true;
             ConsoleMultipleBuy02 multibuyPage02 = new ConsoleMultipleBuy02(_stregsystem);
@@ -171,6 +195,7 @@ namespace Eksamensopgave2017
 				string[] commandSplitted = null;
 				string command = Console.ReadLine();
 
+				// Handles input (wheter to go to next display or to buy)
 				if (command != null)
 				{
 					commandSplitted = command.Split(' ');
@@ -202,6 +227,7 @@ namespace Eksamensopgave2017
 			}
         }
 
+        // Display for userinfo
         public void UserInfo(string username)
         {
             User user = _stregsystem.GetUserByUsername(username);

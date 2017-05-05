@@ -3,7 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace Stregsystem
 {
-
+    /// <summary>
+    /// Product has an ID, a name, price, an active flag, 
+    /// and can or can not be bought on credit.
+    /// Some properties have some validations, and may throw exceptions.
+    /// </summary>
 	public class Product
 	{
 		private int _iD;
@@ -43,7 +47,7 @@ namespace Stregsystem
 			}
 			set
 			{
-				if (value != null) //Not Null, but what about numbers?
+				if (value != null) 
 					_name = value;
 				else
 					throw new ArgumentNullException("Product name can't be empty");

@@ -4,20 +4,19 @@ using Stregsystem;
 
 namespace Eksamensopgave2017
 {
-	public class ConsoleReceipt : ConsoleDesign
-	{
-		public ConsoleReceipt(BuyTransaction transaction, int amount, bool isQuickbuy)
-		{
-			this.Transaction = transaction;
-            this.Amount = amount;
-            this.IsQuickbuy = isQuickbuy;
-		}
+	/// <summary>
+	/// ConsoleUserinfo01 is the subclass of ConsoleDesign.
+	/// It has a header, a body, a bodytext the print method which calls all the other methods.
+	/// This displays a users info.
+	/// </summary>
+	public class ConsoleUserInfo01 : ConsoleDesign
+    {
+        public ConsoleUserInfo01(User user)
+        {
+            this.User = user;
+        }
 
-		public BuyTransaction Transaction { get; set; }
-
-		public int Amount { get; set; }
-
-        public bool IsQuickbuy { get; set; }
+        public User User { get; set; }
 
 		public override void Header()
 		{
@@ -25,9 +24,9 @@ namespace Eksamensopgave2017
 
 			List<string> printingList = new List<string>();
 
-			printingList.Add("____ ____ ____ ____    ___ ___");
-			printingList.Add("|__/ |___ |    |___ | | __] |");
-			printingList.Add("|  \\ |___ |___ |___ | |     |");
+			printingList.Add("_  _ ____ ____ ____    _ _  _ ____ ____");
+			printingList.Add("|  | [__  |___ |__/    | |\\ | |___ |  |");
+			printingList.Add("|__| ___] |___ |  \\    | | \\| |    |__|");
 
 			foreach (string line in printingList)
 			{
@@ -36,9 +35,10 @@ namespace Eksamensopgave2017
 			}
 			Console.WriteLine();
 		}
-
-		public override void Body()
-		{
+  
+        public override void Body()
+        {
+            int lineLength = 0;
 			Console.BackgroundColor = ConsoleColor.Gray;
 			Console.ForegroundColor = ConsoleColor.Black;
 
@@ -46,6 +46,8 @@ namespace Eksamensopgave2017
 
 			printingList.Add(" ________________________________________________________ ");
 			printingList.Add("|                                                        |");
+            printingList.Add("|                                                        |");
+			printingList.Add("|   ··················································   |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
@@ -55,50 +57,50 @@ namespace Eksamensopgave2017
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|                                                        |");
+			printingList.Add("|                                                        |");
+			printingList.Add("|           Hit enter to see the last purhases           |");
 			printingList.Add("|________________________________________________________|");
 
 			foreach (string line in printingList)
 			{
 				Console.SetCursorPosition((Console.WindowWidth - line.Length) / 2, Console.CursorTop);
 				Console.WriteLine(line);
+                lineLength = line.Length;
 			}
-		}
+        }
 
 		public void BodyText()
 		{
-			Console.SetCursorPosition(0, 7);
+            Console.SetCursorPosition(0, 7);
 
-            string quickbuy = "";
-            if (IsQuickbuy)
-                quickbuy = "Quickbuy";
+			List<string> printingList = new List<string>();
 
-
-            List < string > printingList = new List<string>();
-            printingList.Add($"{Transaction.User.Firstname} {Transaction.User.Lastname} made a {quickbuy}purchase");
-			printingList.Add("and bought the following products:");
+            printingList.Add($"   About {User.Firstname} {User.Lastname}");
 			printingList.Add("");
-            printingList.Add($"{Amount}x {Transaction.Product.Name} {Transaction.Product.Price},-");
 			printingList.Add("");
-			printingList.Add("·······························");
-            printingList.Add($"Total price: {Amount * Transaction.Product.Price},-");
-            printingList.Add("");
-			printingList.Add($"{Transaction.Date}");
+			printingList.Add($"Username:         {User.Username}");
+			printingList.Add("");
+			printingList.Add($"User ID:          {User.ID}");
+			printingList.Add("");
+			printingList.Add($"Email:            {User.Email}");
+			printingList.Add("");
+			printingList.Add($"Current Balance:  {User.Balance},-");
 
-			foreach (string line in printingList)
-			{
-				Console.SetCursorPosition((Console.WindowWidth - line.Length) / 2, Console.CursorTop);
+            foreach (string line in printingList)
+            {
+				Console.SetCursorPosition((Console.WindowWidth - 50) / 2, Console.CursorTop);
 				Console.WriteLine(line);
-			}
-		}
+            }
+        }
 
-		public override void Print()
-		{
-			Console.BackgroundColor = ConsoleColor.Black;
+        public override void Print()
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
 			Console.ForegroundColor = ConsoleColor.Gray;
 			Console.Clear();
 			Header();
 			Body();
 			BodyText();
 		}
-	}
+    }
 }

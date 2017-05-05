@@ -7,7 +7,7 @@
 		void DisplayProductNotFound();
         void DisplayProductNotActive(string product);
 		void DisplayTooManyArgumentsError();
-		void DisplayAdminCommandNotFoundMessage(string adminCommand);
+		void DisplayAdminCommandNotFoundMessage();
 		void DisplayInsufficientCash(User user, Product product);
 		void DisplayGeneralError();
 		void Start();

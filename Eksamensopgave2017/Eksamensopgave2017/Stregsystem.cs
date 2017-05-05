@@ -6,20 +6,27 @@ using Stregsystem;
 
 namespace Eksamensopgave2017
 {
+	/// <summary>
+    /// Stregsystem inherits from IStregsystem (its Interface).
+    /// It consists of methods that does what the program needs to be doing.
+    /// (individual methods that are all needed for the program to be working)
+	/// </summary>
 	class Stregsystem : IStregsystem
 	{
-        //Lav private
-		public List<Product> ListOfProducts = new List<Product>();
-		public List<User> ListOfUsers = new List<User>();
-		public List<Transaction> TransactionList = new List<Transaction>();
+        //What is made here, can be reached from all the methods in this class (Stregsystem).
+		private List<Product> _listOfProducts = new List<Product>();
+        private List<User> _listOfUsers = new List<User>();
+        private List<Transaction> _transactionList = new List<Transaction>();
         private WritingFiles _writingfiles = new WritingFiles();
 
         public Stregsystem()
         {
+            //Calls these methods from start
 			GetAllUsers();
             GetAllProducts();          
 		}
 
+        // Making a product (and puts them into a list) from every line in the file products.csv
         public void GetAllProducts()
 		{
 			ReadingFiles productsFile = new ReadingFiles();
@@ -38,17 +45,20 @@ namespace Eksamensopgave2017
 
 				string name = productsFile.RemoveHTMLCode(productLine[1]).Trim();
 
-                decimal price = (decimal.Parse(productLine[2], NumberStyles.Any, CultureInfo.InvariantCulture) / 100);
+				// Dividing with 100 because the input was not in whole KR, but in ØRE
+				decimal price = (decimal.Parse(productLine[2], NumberStyles.Any, CultureInfo.InvariantCulture) / 100); 
 
 				if (productLine[3] == "1")
 					active = true;
 				else
 					active = false;
 
-				ListOfProducts.Add(new Product(iD, name, price, active));
+                // Making the list of products
+				_listOfProducts.Add(new Product(iD, name, price, active));
 			}
 		}
 
+		// Making a product (and puts them into a list) from every line in the file products.csv
 		public void GetAllUsers()
 		{
 			ReadingFiles usersFile = new ReadingFiles();
@@ -71,22 +81,26 @@ namespace Eksamensopgave2017
 				string email = userLine[4].Replace("\"", "");
 
                 balance = decimal.Parse(userLine[5], NumberStyles.Any, CultureInfo.InvariantCulture);
-             	
-                ListOfUsers.Add(new User(iD, firstname, lastname, username, email, balance));
+
+				// Making the list of products
+				_listOfUsers.Add(new User(iD, firstname, lastname, username, email, balance));
 			}
 		}
 
+        // Executing the transaction, no matter whether it is Buytransaction og InsertCashTransaction.
 		public void ExecuteTransaction(Transaction transaction)
 		{
 			transaction.Execute();
-			TransactionList.Add(transaction);
+			_transactionList.Add(transaction);
 		}
 
+        // Creating a list with only active products
 		public IEnumerable<Product> ActiveProducts
 		{
-			get { return ListOfProducts.Where((Product product) => product.Active); }
+			get { return _listOfProducts.Where((Product product) => product.Active); }
 		}
 
+		// Inserting cash to a users account
 		public InsertCashTransaction AddCreditsToAccount(User user, decimal amount)
 		{
 			InsertCashTransaction insertCashTransaction = new InsertCashTransaction(user, DateTime.Now, amount);
@@ -96,6 +110,7 @@ namespace Eksamensopgave2017
             return insertCashTransaction;
 		}
 
+        // A user buying a product (a transaction is made)
 		public BuyTransaction BuyProduct(User user, Product product)
         {
             BuyTransaction buytransaction = new BuyTransaction(user, DateTime.Now, product);
@@ -106,11 +121,12 @@ namespace Eksamensopgave2017
             return buytransaction;
 		}
 
+        // Get a product by giving an ID, or return null
 		public Product GetProductByID(int productID)
 		{
             try
             {
-            	return ListOfProducts.First(product => (product.ID == productID));
+            	return _listOfProducts.First(product => (product.ID == productID));
             }
             catch(Exception)
             {
@@ -118,20 +134,16 @@ namespace Eksamensopgave2017
             }
 		}
 
+        // Getting a list of a users transaction up to <count> times 
 		public IEnumerable<Transaction> GetTransactions(User user, int count)
 		{
-            return TransactionList.Where((Transaction transaction) => (transaction.User.ID == user.ID)).Take(count);
+            return _transactionList.Where((Transaction transaction) => (transaction.User.ID == user.ID)).Take(count);
 		}
 
-		public User GetUser(Func<User, bool> predicate)
-		{
-			//Goes through the list, until it finds a match
-			return ListOfUsers.FirstOrDefault(predicate);
-		}
-
+        // Finding a user with <username> as username, or return null
         public User GetUserByUsername(string username)
         {
-			foreach (User user in ListOfUsers)
+			foreach (User user in _listOfUsers)
 			{
                 if (user.Username == username)
 					return user;

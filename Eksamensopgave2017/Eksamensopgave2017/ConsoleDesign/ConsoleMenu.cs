@@ -3,12 +3,15 @@ using System.Collections.Generic;
 
 namespace Eksamensopgave2017
 {
-    public class ConsoleMenu : ConsoleDesign
+	/// <summary>
+	/// ConsoleMenu is the subclass of ConsoleDesign.
+	/// It has a header, a body, a "choice" the print method which calls all the other methods
+	/// </summary>
+	public class ConsoleMenu : ConsoleDesign
     {
         public ConsoleMenu()
         {
         }
-		
 
 		public override void Header()
 		{
@@ -39,7 +42,7 @@ namespace Eksamensopgave2017
             printingList.Add("|  Options:                                      Write:  |");
             printingList.Add("|––––––––––––––––––––––––––––––––––––––––––––––––––––––––|");
             printingList.Add("|                                                        |");
-            printingList.Add("|  Quickbuy                     ( Username product ID )  |");
+            printingList.Add("|  Quickbuy                      ( Username ProductID )  |");
 			printingList.Add("|                                                        |");
 			printingList.Add("|  User info                               ( Username )  |");
 			printingList.Add("|                                                        |");

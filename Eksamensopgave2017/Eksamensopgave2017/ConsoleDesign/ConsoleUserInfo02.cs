@@ -5,7 +5,12 @@ using System.Linq;
 
 namespace Eksamensopgave2017
 {
-    public class ConsoleUserInfo02 : ConsoleDesign
+	/// <summary>
+	/// ConsoleUserinfo02 is the subclass of ConsoleDesign.
+	/// It has a header, a body, a bodytext the print method which calls all the other methods.
+	/// This displays up to 10 of a users purchases.
+	/// </summary>
+	public class ConsoleUserInfo02 : ConsoleDesign
     {
         private IStregsystem _stregsystem;
 		private int _lineLength = 0;

@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 namespace Eksamensopgave2017
 {
+    /// <summary>
+    /// StregsystemCLI implents IStregsystemUI.
+    /// All the visual errors.
+    /// </summary>
     class StregsystemCLI : IStregsystemUI
     {
         private bool _running = true;
@@ -67,10 +71,17 @@ namespace Eksamensopgave2017
 			Console.WriteLine(write1);
         }
 
-        public void DisplayAdminCommandNotFoundMessage(string adminCommand)
+        public void DisplayAdminCommandNotFoundMessage()
         {
-            Console.WriteLine($"!ERROR!\nCommand not found!");
-        }
+			Console.BackgroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.White;
+			string write = "                         !ERROR!                          ";
+			string write1 = "           You did something wronge - Try again           ";
+			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop - 1);
+			Console.WriteLine(write);
+			Console.SetCursorPosition((Console.WindowWidth - write.Length) / 2, Console.CursorTop);
+			Console.WriteLine(write1);
+		}
        
         public void DisplayInsufficientCash(User user, Product product)
         {
@@ -88,6 +99,7 @@ namespace Eksamensopgave2017
 			Console.WriteLine(write);
         }
 
+        // When program is started, the MenuDisplay is started
         public void Start()
         {
             while (_running)
@@ -98,12 +110,14 @@ namespace Eksamensopgave2017
 				Console.ReadLine();
             }
         }
-        
+
+        // When close is calles, _running = false, and Start() will stop running, and the program stops.
         public void Close()
         {
             _running = false;
         }
 
+        // An event used in Start()
         public event StregsystemEvent CommandEntered;
     }
 }

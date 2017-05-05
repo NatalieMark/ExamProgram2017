@@ -1,14 +1,12 @@
 ﻿//20152853_Natalie_Mark
 
-using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Stregsystem;
 
 namespace Eksamensopgave2017
 {
+    /// <summary>
+    /// The program where everything begins!
+    /// </summary>
 	class Program
 	{
 		static void Main(string[] args)

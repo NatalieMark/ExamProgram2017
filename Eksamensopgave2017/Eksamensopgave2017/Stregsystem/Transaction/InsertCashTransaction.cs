@@ -1,6 +1,11 @@
 ﻿using System;
 namespace Stregsystem
 {
+    /// <summary>
+    /// Insertcashtransaction inherits from Transactions.
+    /// Insert have the same parameters as Transaction and a deposit.
+    /// Execute adds a deposit to the users balance.
+    /// </summary>
 	public class InsertCashTransaction : Transaction
 	{
 		private decimal _deposit;

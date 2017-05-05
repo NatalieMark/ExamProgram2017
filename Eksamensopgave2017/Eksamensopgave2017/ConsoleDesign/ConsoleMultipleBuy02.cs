@@ -4,6 +4,11 @@ using Stregsystem;
 
 namespace Eksamensopgave2017
 {
+	/// <summary>
+	/// ConsoleMultiBuy02 is the subclass of ConsoleDesign.
+	/// It has a header, a body, a bodytext the print method which calls all the other methods.
+	/// It displays more of the active products.
+	/// </summary>
 	public class ConsoleMultipleBuy02 : ConsoleDesign
 	{
         private int _productsPrinted;
@@ -124,7 +129,6 @@ namespace Eksamensopgave2017
 			Console.WriteLine(writeMore);
 
 			string choice = "                                                                       ";
-			Console.BackgroundColor = ConsoleColor.White;
 			Console.SetCursorPosition((Console.WindowWidth - choice.Length) / 2, Console.CursorTop);
 			Console.WriteLine(choice);
 

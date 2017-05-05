@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Stregsystem
 {
+    /// <summary>
+    /// Transaction has an ID (increment), a user and a date.
+    /// Every transaction has an abstract method (Execute), since a transaction NEEDS to be executed.
+    /// </summary>
 	public abstract class Transaction
 	{
 		private static int _iD = 1; //Starting with 1 and counts up 1 for every transaction

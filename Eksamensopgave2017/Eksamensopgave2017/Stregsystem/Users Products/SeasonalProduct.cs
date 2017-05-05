@@ -2,6 +2,11 @@
 
 namespace Stregsystem
 {
+    /// <summary>
+    /// Seasonalproducts inherits from Products
+    /// Seasonalproducts has the same parameters as Products, 
+    /// a start date and an end date.
+    /// </summary>
 	public class SeasonalProduct : Product
 	{
 		private DateTime _seasonStartDate;
