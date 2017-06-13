@@ -1,5 +1,11 @@
 ﻿<Properties StartupConfiguration="{A8C4D93E-FEB7-46AA-87CE-2AF138391681}|Default">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="StregsystemController.cs">
+    <Files>
+      <File FileName="ConsoleDesign/ConsoleMenu.cs" Line="45" Column="76" />
+      <File FileName="ConsoleDesign/ConsoleUserInfo01.cs" Line="87" Column="41" />
+      <File FileName="StregsystemController.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
