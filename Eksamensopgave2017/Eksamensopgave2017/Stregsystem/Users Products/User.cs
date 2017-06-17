@@ -163,9 +163,9 @@ namespace Stregsystem
 		}
 
         //Made Regex for Email- and username validation
-		private static readonly Regex _emailLocalpartValidator = new Regex(@"^[a-zA-Z0-9_@\.\-]+$");
-		private static readonly Regex _emailDomainValidatorMayConsistOf = new Regex(@"^[a-zA-Z0-9@\.\-]+$");
-		private static readonly Regex _usernameValidator = new Regex(@"^[a-z0-9_]+$");
+		private  readonly Regex _emailLocalpartValidator = new Regex(@"^[a-zA-Z0-9_@\.\-]+$");
+		private  readonly Regex _emailDomainValidatorMayConsistOf = new Regex(@"^[a-zA-Z0-9@\.\-]+$");
+		private  readonly Regex _usernameValidator = new Regex(@"^[a-z0-9_]+$");
 
         //Assuming ID is unique
 		public override bool Equals(object user)

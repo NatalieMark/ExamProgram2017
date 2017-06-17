@@ -1,8 +1,10 @@
 ﻿<Properties StartupConfiguration="{A8C4D93E-FEB7-46AA-87CE-2AF138391681}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Eksamensopgave2017/ConsoleReceipt.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Eksamensopgave2017/Program.cs">
     <Files>
-      <File FileName="Eksamensopgave2017/ConsoleReceipt.cs" Line="89" Column="37" />
-      <File FileName="Eksamensopgave2017/ConsoleMenu.cs" Line="64" Column="74" />
+      <File FileName="Eksamensopgave2017/StregsystemCLI.cs" Line="1" Column="1" />
+      <File FileName="Eksamensopgave2017/Stregsystem.cs" Line="1" Column="1" />
+      <File FileName="Eksamensopgave2017/Program.cs" Line="1" Column="1" />
+      <File FileName="Eksamensopgave2017/StregsystemController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

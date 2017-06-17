@@ -121,13 +121,3 @@ namespace Eksamensopgave2017
         public event StregsystemEvent CommandEntered;
     }
 }
-
-/*
-StregsystemCLI er karakteriseret ved:
-• Start
-    ◦ En metode der starter brugergrænsefladen.
-    ◦ Når brugergrænsefladen er startet, vil menuen blive vist,
-        og være klar til at modtage quickbuy kommandoer. Mere om kommandoer i 3. del.
-    ◦ Brugergrænsefladen skal kun vise aktive produkter.
-    ◦ Denne klasse er den eneste i systemet der må skrive noget ud til brugeren!
-*/

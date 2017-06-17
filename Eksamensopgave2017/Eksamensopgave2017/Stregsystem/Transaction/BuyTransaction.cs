@@ -36,10 +36,6 @@ namespace Stregsystem
         {
             if (User.Balance >= Product.Price || Product.CanBeBoughtOnCredit)
                 User.Balance -= Product.Price;
-            else
-                throw new InsufficientCreditsException($"{User.Username} does not have money enough for the attempted purchase\n" +
-                                                       $"Tried to buy: {Product.Name} (ID {Product.ID}) which costs {Product.Price},-\n" +
-                                                       $"Current balance: {User.Balance}");
         }
     }
 }

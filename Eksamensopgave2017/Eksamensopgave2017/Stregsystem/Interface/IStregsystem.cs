@@ -14,6 +14,6 @@ namespace Stregsystem
 		Product GetProductByID(int productID);
 		IEnumerable<Transaction> GetTransactions(User user, int count);
 		User GetUserByUsername(string username);
-		//event UserBalanceNotification UserBalanceWarning;
+		event UserBalanceNotification UserBalanceWarning;
 	}
 }

@@ -137,7 +137,7 @@ namespace Eksamensopgave2017
         // Getting a list of a users transaction up to <count> times 
 		public IEnumerable<Transaction> GetTransactions(User user, int count)
 		{
-            return _transactionList.Where((Transaction transaction) => (transaction.User.ID == user.ID)).Take(count);
+            return _transactionList.Where((Transaction transaction) => (transaction.User.ID == user.ID)).Reverse().Take(count);
 		}
 
         // Finding a user with <username> as username, or return null
@@ -149,6 +149,13 @@ namespace Eksamensopgave2017
 					return user;
 			}
             return null;
+        }
+
+		public event UserBalanceNotification UserBalanceWarning;
+
+        protected virtual void OnUserBalanceWarning(User user)
+        {
+            UserBalanceWarning?.Invoke(user, user.Balance);
         }
 	}
 }

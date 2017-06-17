@@ -1,0 +1,10 @@
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/bin/Debug/Tests.dll
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/bin/Debug/Tests.pdb
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/bin/Debug/nunit.framework.dll
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/bin/Debug/Stregsystem.dll
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/bin/Debug/Stregsystem.pdb
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/bin/Debug/nunit.framework.xml
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/obj/Debug/Tests.csprojResolveAssemblyReference.cache
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/obj/Debug/Tests.csproj.CoreCompileInputs.cache
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/obj/Debug/Tests.dll
+/Users/nataliemark/ExamProgram2017/Eksamensopgave2017/Eksamensopgave2017/Tests/obj/Debug/Tests.pdb

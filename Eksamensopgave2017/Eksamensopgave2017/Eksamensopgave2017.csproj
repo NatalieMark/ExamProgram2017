@@ -37,8 +37,6 @@
     <Compile Include="Stregsystem.cs" />
     <Compile Include="StregsystemCLI.cs" />
     <Compile Include="StregsystemController.cs" />
-    <Compile Include="Buttons\ButtonBase.cs" />
-    <Compile Include="Buttons\Button.cs" />
     <Compile Include="ConsoleDesign\ConsoleDesign.cs" />
     <Compile Include="ConsoleDesign\ConsoleMenu.cs" />
     <Compile Include="ConsoleDesign\ConsoleMultipleBuy01.cs" />
@@ -48,7 +46,6 @@
     <Compile Include="ConsoleDesign\ConsoleUserInfo02.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Buttons\" />
     <Folder Include="ConsoleDesign\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{A8C4D93E-FEB7-46AA-87CE-2AF138391681}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="StregsystemController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Stregsystem/Transaction/BuyTransaction.cs">
     <Files>
-      <File FileName="ConsoleDesign/ConsoleMenu.cs" Line="45" Column="76" />
-      <File FileName="ConsoleDesign/ConsoleUserInfo01.cs" Line="87" Column="41" />
-      <File FileName="StregsystemController.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="20" Column="2" />
+      <File FileName="Stregsystem/Exceptions/EmptyListException.cs" Line="1" Column="1" />
+      <File FileName="Stregsystem/Interface/IStregsystem.cs" Line="8" Column="22" />
+      <File FileName="Stregsystem/Users Products/User.cs" Line="119" Column="25" />
+      <File FileName="Stregsystem/Transaction/BuyTransaction.cs" Line="47" Column="47" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
